@@ -5,14 +5,17 @@ public class Task {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите число в бинарном формате: ");
         String str = in.next();
-        if (!str.matches("^[01]+$")) {
-            System.out.println("Число имеет неверный формат!");
-        } else {
-            int n = 0;
-            for (int i = str.length() - 1, j = 1; i >= 0; i--, j *= 2) {
-                n += (str.charAt(i) - '0') * j;
+        int n = 0;
+        for (int i = str.length() - 1, j = 1; i >= 0; i--, j *= 2) {
+            int sym = str.charAt(i) - '0';
+            if (sym > 1) {
+                System.out.println("Число имеет неверный формат!");
+                return;
             }
-            System.out.println("Число в десятичном формате: " + n);
+            n += sym * j;
         }
+        System.out.println("Число в десятичном формате: " + n);
+
+
     }
 }
