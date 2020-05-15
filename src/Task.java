@@ -8,7 +8,7 @@ public class Task {
         int n = 0;
         for (int i = str.length() - 1, j = 1; i >= 0; i--, j *= 2) {
             int sym = str.charAt(i) - '0';
-            if (sym > 1) {
+            if (sym > 1 || sym < 0) {
                 System.out.println("Число имеет неверный формат!");
                 return;
             }
